@@ -1,3 +1,5 @@
+
+// Trivia orientada a 6 oportunidades
 const oportunidades = [
     'Fundacion Por un mañana mejor en Bogotá, Colombia',
     'Instituto Solidare en Recife, Brasil',
@@ -15,6 +17,16 @@ const imgOportunidad = [
     'img/liberamente.jpg',
     'img/ronaldmcdonald.jpg',
     'img/yakari.jpg'
+];
+
+// Descripciones finales para cada oportunidad (se muestran en el resultado)
+const descripcionesOportunidad = [
+    `<strong>ODS 4:</strong> Ofrece orientación y formación en valores, convivencia y un buen uso de tiempo libre, atención alimentaria, apoyo escolar, deportivo, recreativo y cultural a los niños de la comunidad, durante las jornadas alternas a la escolar. <br><br> Tu codigo de descuento es: <strong>20%COLOMBIA</strong>`,
+    `<strong>ODS 4:</strong> Su misión es empoderar a niños, jóvenes y familias mediante programas de socioeducación, desarrollo económico solidario y defensa de derechos. A través de la formación ciudadana y el emprendimiento, busca construir autonomía y un futuro más justo. <br><br> Tu codigo de descuento es: <strong>20%BRASIL</strong>`,
+    `<strong>ODS 4:</strong> Su misión principal es proporcionar un entorno seguro, enriquecedor y divertido donde los niños puedan crecer, aprender y desarrollar habilidades sociales y cognitivas. Buscan fomentar la creatividad y el aprendizaje lúdico. <br><br> Tu codigo de descuento es: <strong>20%EGIPTO</strong>`,
+    `<strong>ODS 10:</strong> "Liberamente" es una asociación italiana dedicada a defender los derechos civiles y humanos, y promover la inclusión social y el diálogo intercultural. Su misión se centra en crear un modelo de sociedad solidaria a través de la acogida e integración de solicitantes de asilo y refugiados. <br><br> Tu codigo de descuento es: <strong>20%ITALIA</strong>`,
+    `<strong>ODS 17:</strong> Se dedica a apoyar la salud y el bienestar de los niños, manteniendo a las familias unidas durante tratamientos médicos complejos. Su misión se centra en proporcionar un "hogar lejos del hogar" para niños de 0 a 18 años. <br><br> Tu codigo de descuento es: <strong>20%MEXICO</strong>`,
+    `<strong>ODS 4:</strong> Es una asociación cultural y educativa en Cusco, Perú, dedicada a transformar el futuro de niños y jóvenes a través de la educación, la cultura y el liderazgo. Se centra en valorar los intereses comunitarios mediante acciones recreativas y culturales, fomentando el desarrollo personal y la formación de líderes seguros y creativos. <br><br> Tu codigo de descuento es: <strong>20%PERU</strong>`
 ];
 
 // Imágenes genéricas (locales)
@@ -153,7 +165,10 @@ function calcularResultado(){
         <div style="margin:18px 0;text-align:center;">
             <img src="${imgGrande}" alt="${ganadora}" style="max-width:100%;width:340px;height:auto;border-radius:16px;box-shadow:0 4px 24px rgba(11,102,195,0.13);">
         </div>
-        <ul style="margin-top:12px;padding-left:18px">${oportunidades.map((o,i)=>`<li>${o}: ${puntajes[i]} pts</li>`).join('')}</ul>
+        <div style="margin-top:12px;padding:12px 14px;background:#f6fbff;border-radius:10px;color:var(--muted);text-align:left;">${descripcionesOportunidad[idxGanadora]}</div>
+        <div style="text-align:center;margin-top:22px;">
+            <a href="https://podio.com/webforms/30454927/2569796" target="_blank" class="btn-link" style="display:inline-block;padding:12px 28px;background:#0b66c3;color:#fff;font-weight:600;border-radius:8px;text-decoration:none;box-shadow:0 2px 8px rgba(11,102,195,0.10);transition:background .2s;">Ir al formulario de contacto</a>
+        </div>
     `;
     triviaActions.style.display = 'none';
     result.style.display = 'block';

@@ -61,18 +61,29 @@
 .option-btn {
   position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   background: #fff;
-  border-radius: 5px;
-  padding: 0;
+  border-radius: 8px;
+  padding: 8px;
   margin: 8px;
   cursor: pointer;
   transition: box-shadow .2s, border-color .2s;
   box-shadow: 0 2px 8px rgba(11,102,195,0.08);
   width: 140px;
-  height: 140px;
-  overflow: hidden;
+  min-height: 140px;
+  height: auto;
+  overflow: visible;
+  box-sizing: border-box;
+}
+.option-btn-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 }
 .option-btn.selected {
   border-color: var(--accent-600);
@@ -80,39 +91,39 @@
 }
 .option-btn img {
   width: 100%;
-  height: 100%;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
-  border-radius: 5px;
+  border-radius: 6px;
   display: block;
 }
 .option-btn span {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.05rem;
-  color: #fff;
+  width: 100%;
+  display: block;
+  font-size: 1rem;
+  color: #222;
   text-align: center;
   font-weight: 600;
-  background: rgba(0, 0, 0, 0.521);
-  border-radius: 5px;
-  padding: 0 8px;
+  background: none;
+  border-radius: 0;
+  margin-top: 8px;
   pointer-events: none;
+  white-space: normal;
+  word-break: break-word;
+  padding: 4px 6px 8px 6px;
 }
 @media (max-width: 700px) {
   .option-btn {
     width: 100%;
     min-width: 0;
-    max-width: 180px;
-    height: 110px;
+    max-width: 220px;
     font-size: 0.95rem;
+    height: auto;
+    min-height: 120px;
   }
   .option-btn img {
-    height: 100%;
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    height: auto;
   }
   .option-btn span {
     font-size: 0.98rem;
@@ -122,8 +133,9 @@
 @media (max-width: 430px) {
   .option-btn {
     max-width: 98vw;
-    height: 90px;
     font-size: 0.92rem;
+    height: auto;
+    min-height: 100px;
   }
   .option-btn span {
     font-size: 0.93rem;
@@ -140,8 +152,8 @@
 :root{
   --bg:#eaf6ff; /* fondo general claro azul */
   --card:#ffffff; /* cartas y paneles en blanco */
-  --accent:#0b66c3; /* azul principal */
-  --accent-600:#0855a0;
+  --accent:#000000; /* azul principal */
+  --accent-600:#04172b;
   --muted:#1e3a5f; /* texto secundario en azul oscuro */
   --text:#07203a;
 }
@@ -150,8 +162,7 @@
 body{
   font-family:Inter,system-ui,Segoe UI,Arial,Helvetica,sans-serif;
   color:var(--text);
-  background: var(--bg) url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80') no-repeat center center fixed;
-  background-size: cover;
+  background: #037ef3;
   margin:0;padding:24px;display:flex;justify-content:center;
 }
 .container{
@@ -174,11 +185,16 @@ header{
 header h1{
   font-size:1.25rem;
   margin:0;
-  color:var(--accent-600);
+  color:#ffffff;
   text-align:center;
   width:100%;
 }
-.card{background:var(--card);border: radius 5px;padding:20px;box-shadow:0 6px 20px rgba(11,102,195,0.06)}
+.card {
+  background: var(--card);
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 4px 24px 0 rgba(11,102,195,0.10), 0 1.5px 6px 0 rgba(0,0,0,0.08);
+}
 form .row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:12px}
 label{display:block;margin-bottom:6px;font-weight:600;color:var(--accent-600)}
 select,input[type="text"],input[type="email"],textarea{width:100%;padding:0.6rem 12px;border:1px solid rgba(11,102,195,0.12);border-radius:8px;font-size:1rem;background:#fff;color:var(--text)}
@@ -189,10 +205,3 @@ button.secondary{background:#fff;color:var(--accent);border:1px solid rgba(11,10
 #result{margin-top:16px;padding:12px;border-radius:8px;background:#f6fbff;border:1px dashed rgba(11,102,195,0.15);color:var(--muted)}
 @media (max-width:600px){header{flex-direction:column;align-items:flex-start}}
 
-/* pequeños ajustes visuales */
-.field{flex:1;min-width:180px}
-img[alt="AIESEC logo"]{
-  box-shadow: 0 2px 8px rgba(11,102,195,0.08);
-  display: block;
-  margin: 0 auto;
-}
